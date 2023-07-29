@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Your Game Title</title>
+    <link rel="stylesheet" type="text/css" href="styles/game.css">
+</head>
+
+<body>
+    <div id="stars"></div>
+    <button id="buyWorker">Buy worker ($5)</button>
+    <button id="upgradeWorkersButton">Upgrade workers ($20)</button>
+    <button id="speedUpWorkersButton">SpeedUp workers ($20)</button>
+    <br />
+    <!-- <div id="timer">00:00</div>
+    <div id="resources">Resources left: 0</div> -->
+    <canvas id="gameCanvas" width="1400" height="600"></canvas>
+
+    <script src="src/utils/collisions.js"></script>
+
+    <script src="src/entities/worker.js"></script>
+    <script src="src/entities/deposit.js"></script>
+    <script src="src/entities/base.js"></script>
+    <script src="src/ui/background.js"></script>
+    <script src="src/managers/depositsManager.js"></script>
+    <script src="src/managers/buildingsManager.js"></script>
+    <script src="src/managers/unitsManager.js"></script>
+
+    <script src="src/core/gameState.js"></script>
+    <script src="src/core/renderer.js"></script>
+    <script src="src/ui/userInteractions.js"></script>
+
+    <script src="src/core/game.js"></script>
+
+</body>
+
+</html>

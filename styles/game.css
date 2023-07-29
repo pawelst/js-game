@@ -1,0 +1,39 @@
+body {
+    height: 100vh;
+    margin: 0;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    overflow: hidden;
+}
+
+#gameCanvas {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+#buyWorker {
+    display: inline-block;
+}
+
+#stars {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    animation: animStar 600s linear infinite;
+}
+
+#timer,#resources {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 10px;
+    color:white;
+}
+
+@keyframes animStar {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(-2000px);
+    }
+}
