@@ -23,22 +23,31 @@ UserInteractions.register(gameState);
 gameState.startGame();
 
 
+let lastFrameTime = performance.now();
+const frameDelay = 1000 / 60;  // 60 FPS
+
 // Game loop
 function gameLoop() {
 
-    // // Clear the canvas
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    let currentFrameTime = performance.now();
+    let timeSinceLastFrame = currentFrameTime - lastFrameTime;
 
-    gameState.unitsMgr.navigateUnits(gameState.units, gameState.deposits, gameState.base)
+    if (timeSinceLastFrame >= frameDelay) {
+        // Enough time has passed, we should render a new frame
+        lastFrameTime = currentFrameTime;
+        // // Clear the canvas
+        context.clearRect(0, 0, canvas.width, canvas.height);
 
-    renderer.renderDeposits();
-    renderer.renderUnits();
-    renderer.renderBuildings();
+        gameState.unitsMgr.navigateUnits(gameState.units, gameState.deposits, gameState.base)
 
+        renderer.renderDeposits();
+        renderer.renderUnits();
+        renderer.renderBuildings();
+    }
     requestAnimationFrame(gameLoop);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     // Start the game loop
-    gameLoop();
+    requestAnimationFrame(gameLoop);
 });
