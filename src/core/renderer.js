@@ -49,21 +49,4 @@ export class Renderer {
         this.context.fillRect(this.gameState.base.x, this.gameState.base.y, this.gameState.base.width, this.gameState.base.height);
         this.context.fillText('$' + this.gameState.base.storage, this.gameState.base.x - 20, this.gameState.base.y + this.gameState.base.height / 2);
     }
-
-    renderSingleUnit(unit) {
-        this.context.save();
-
-        // Translate and rotate the context
-        this.context.translate(worker.x, worker.y);
-        this.context.rotate(getAngle(worker) + Math.PI / 2);
-
-        // Draw the body of the rocket
-        this.context.beginPath();
-        this.context.rect(-5, -15, 10, 20);  // Adjust these numbers to change the size of the rocket body
-        this.context.fillStyle = worker.carrying ? 'grey' : 'silver';
-        this.context.fill();
-        this.context.stroke();
-
-        this.context.restore();
-    }
 }

@@ -10,7 +10,9 @@ const context = canvas.getContext('2d');
 
 let gameState = new GameState();
 let renderer = new Renderer(gameState, canvas, context);
+
 let background = new Background();
+background.draw();
 
 UserInteractions.register(gameState);
 
@@ -36,7 +38,7 @@ function gameLoop() {
     requestAnimationFrame(gameLoop);
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', () => {
     // Start the game loop
     gameLoop();
 });

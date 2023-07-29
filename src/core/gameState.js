@@ -1,7 +1,6 @@
 import { DepositsManager } from '../managers/depositsManager';
 import { BuildingsManager } from '../managers/buildingsManager';
 import { UnitsManager } from '../managers/unitsManager';
-import {BaseBuilding} from "../entities/base";
 
 export class GameState {
     isRunning = false;

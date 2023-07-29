@@ -1,5 +1,5 @@
 export class Background {
-    constructor() {
+    draw() {
         this.background = document.getElementById('stars');
         this.background.style.boxShadow = this.generateStars();
     }

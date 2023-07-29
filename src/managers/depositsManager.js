@@ -9,7 +9,7 @@ export class DepositsManager {
         this.deposits = [];
     }
 
-    generateDeposits(maxResourceAmount) {
+    generateDeposits() {
         let amount = 0;
         let numberOfDeposits = 10;
         let canvasHeight = 600;

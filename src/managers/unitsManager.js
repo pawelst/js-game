@@ -7,8 +7,7 @@ export class UnitsManager {
 
     }
     addUnit(name, base) {
-        let unit = new WorkerUnit(name, base);
-        return unit;
+        return new WorkerUnit(name, base);
     }
 
     navigateUnits(units, deposits, base) {
