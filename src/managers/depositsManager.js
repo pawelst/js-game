@@ -1,4 +1,7 @@
-class DepositsManager {
+import { ResourceDeposit } from '../entities/deposit.js';
+import { Utils } from '../utils/collisions.js';
+
+export class DepositsManager {
     constructor() {
         this.totalResources = 1500;
         this.minResourceAmount = 30;
@@ -23,7 +26,7 @@ class DepositsManager {
 
                 deposit = new ResourceDeposit(x, y, amount);
 
-            } while (doDepositsOverlap(deposit, this.deposits));
+            } while (Utils.doDepositsOverlap(deposit, this.deposits));
 
             this.deposits.push(deposit);
 

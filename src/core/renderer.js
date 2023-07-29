@@ -1,4 +1,4 @@
-class Renderer {
+export class Renderer {
 
     constructor(gameState, canvas, context) {
         this.gameState = gameState;
@@ -23,18 +23,18 @@ class Renderer {
     }
 
     renderUnit(unit) {
-        context.save();
+        this.context.save();
         // Translate and rotate the context
-        context.translate(unit.x, unit.y);
+        this.context.translate(unit.x, unit.y);
         //context.rotate(getAngle(unit) + Math.PI/2);
 
         // Draw the body of the rocket
-        context.beginPath();
-        context.rect(-15, -15, 15, 15);
-        context.fillStyle = unit.carrying ? 'grey' : 'silver';
-        context.fill();
-        context.stroke();
-        context.restore();
+        this.context.beginPath();
+        this.context.rect(-15, -15, 15, 15);
+        this.context.fillStyle = unit.carrying ? 'grey' : 'silver';
+        this.context.fill();
+        this.context.stroke();
+        this.context.restore();
     }
 
     renderUnits() {

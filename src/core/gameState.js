@@ -1,7 +1,12 @@
-class GameState {
+import { DepositsManager } from '../managers/depositsManager';
+import { BuildingsManager } from '../managers/buildingsManager';
+import { UnitsManager } from '../managers/unitsManager';
+import {BaseBuilding} from "../entities/base";
+
+export class GameState {
+    isRunning = false;
 
     constructor() {
-        this.isRunning = false;
         this.player = {
             score: 0,
             resources: {
@@ -23,12 +28,13 @@ class GameState {
         this.deposits = this.depositsMgr.generateDeposits(1500);
         this.base = this.buildingsMgr.generateBase();
         this.units = [];
+        console.log(this.base)
+
     }
-    addUnit(name, base) {
+    addUnit() {
         if (this.base.storage >= 5) {
-            let unit = this.unitsMgr.addUnit(this.units.length, base);
+            let unit = this.unitsMgr.addUnit(this.units.length, this.base);
             this.units.push(unit);
-            console.log(`Added unit: ${unit.name}`);
             this.base.storage -= 5;
         }
     }
@@ -48,5 +54,4 @@ class GameState {
             }
         }
     }
-
 }

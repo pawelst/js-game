@@ -1,19 +1,29 @@
-document.addEventListener('DOMContentLoaded', (event) => {
 
-    let buyWorkerButton = document.getElementById('buyWorker');
-    let upgradeWorkersButton = document.getElementById('upgradeWorkersButton');
-    let speedUpWorkersButton = document.getElementById('speedUpWorkersButton');
+export class UserInteractions {
+    static register(gameState) {
+        this.buyWorkerButton = document.getElementById('buyWorker');
+        this.upgradeWorkersButton = document.getElementById('upgradeWorkersButton');
+        this.speedUpWorkersButton = document.getElementById('speedUpWorkersButton');
 
-    buyWorkerButton.addEventListener('click', function () {
-        gameState.addUnit("", gameState.base);
-    });
+        this.buyWorkerButton.addEventListener('click', function () {
+            gameState.addUnit();
+        });
 
-    upgradeWorkersButton.addEventListener('click', function () {
-        gameState.upgradeUnits();
-    });
+        this.upgradeWorkersButton.addEventListener('click', function () {
+            gameState.upgradeUnits();
+        });
 
-    speedUpWorkersButton.addEventListener('click', function () {
-        gameState.speedUpUnits();
-    });
+        this.speedUpWorkersButton.addEventListener('click', function () {
+            gameState.speedUpUnits();
+        });
+    }
 
-});
+
+
+}
+// document.addEventListener('DOMContentLoaded', (event) => {
+//
+//
+//
+// });
+

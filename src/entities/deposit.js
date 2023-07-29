@@ -1,4 +1,4 @@
-class ResourceDeposit {
+export class ResourceDeposit {
     constructor(x, y, amount) {
         this.x = x;
         this.y = y;

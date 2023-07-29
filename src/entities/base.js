@@ -1,4 +1,4 @@
-class BaseBuilding {
+export class BaseBuilding {
     constructor() {
         this.x = 550;
         this.y = 30;

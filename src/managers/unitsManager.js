@@ -1,4 +1,7 @@
-class UnitsManager {
+import {WorkerUnit} from "../entities/worker";
+
+
+export class UnitsManager {
 
     generateUnits() {
 

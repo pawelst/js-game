@@ -1,4 +1,4 @@
-class WorkerUnit {
+export class WorkerUnit {
     constructor(name, base) {
         this.x = base.x + 30;
         this.y = base.y + 30;
