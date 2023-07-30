@@ -8,6 +8,7 @@ body {
 #gameCanvas {
     display: inline-block;
     margin-top: 20px;
+    image-rendering: pixelated;
 }
 
 #buyWorker {

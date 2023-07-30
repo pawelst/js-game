@@ -37,16 +37,51 @@ export class Renderer {
         this.context.restore();
     }
 
+    drawWorker(worker) {
+        let workerImage = document.getElementById('workerSvg');
+
+        let dx = worker.target.x - worker.x;
+        let dy = worker.target.y - worker.y;
+        worker.angle = Math.floor(Math.atan2(dy, dx));
+        worker.angle += 90;
+
+        if (workerImage.complete) {  // make sure the image is completely loaded
+            this.context.save();
+            this.context.translate(worker.x, worker.y);
+            this.context.rotate(worker.angle);
+            this.context.drawImage(workerImage, -10, -10 / 2, 20, 20);
+            this.context.restore();
+        } else {
+            workerImage.onload = function () {
+                this.context.save();
+                this.context.translate(worker.x, worker.y);
+                this.context.rotate(worker.angle);
+                this.context.drawImage(workerImage, -10, -10 / 2, 20, 20);
+                this.context.restore();
+            };
+        }
+
+    }
     renderUnits() {
         // Draw and update each worker
         this.gameState.units.forEach(unit => {
             // Draw the worker
-            this.renderUnit(unit);
+            this.drawWorker(unit);
         });
     }
     renderBuildings() {
-        this.context.fillStyle = 'white';
-        this.context.fillRect(this.gameState.base.x, this.gameState.base.y, this.gameState.base.width, this.gameState.base.height);
+        let storageImage = document.getElementById('baseSvg');
+
+        if (storageImage.complete) {  // make sure the image is completely loaded
+            this.context.drawImage(storageImage, this.gameState.base.x, this.gameState.base.y, 30, 30);
+        } else {
+            storageImage.onload = function () {
+                this.context.drawImage(storageImage, this.gameState.base.x, this.gameState.base.y, 30, 30);
+            };
+        }
+        // this.context.fillStyle = 'white';
+        // this.context.fillRect(this.gameState.base.x, this.gameState.base.y, this.gameState.base.width, this.gameState.base.height);
+        this.context.font = "bold 14px sans-serif";
         this.context.fillText('$' + this.gameState.base.storage, this.gameState.base.x - 20, this.gameState.base.y + this.gameState.base.height / 2);
     }
 }

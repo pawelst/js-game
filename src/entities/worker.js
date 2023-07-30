@@ -15,6 +15,7 @@ export class WorkerUnit {
         this.delay = 0;
         this.name = "Worker_" + name;
         this.speed = 2;
+        this.selected = true;
     }
 
     getNearestResource(resources) {

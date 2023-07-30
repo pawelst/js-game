@@ -17,7 +17,8 @@ background.draw();
 UserInteractions.register(gameState);
 
 // disable this to enable logging
-//console.log = function () { }
+console.log = function () {
+}
 
 // Starting the game
 gameState.startGame();
